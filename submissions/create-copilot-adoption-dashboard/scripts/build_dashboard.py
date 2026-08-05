@@ -485,9 +485,12 @@ def inject(template_text, data, company):
     payload = json.dumps(data, indent=2, ensure_ascii=False)
     block = ("/* Adoption metrics computed from the four Microsoft admin center "
              "report exports. */\nconst DASHBOARD_DATA = " + payload + ";")
-    txt = re.sub(r"/\*\s*@DASHBOARD_DATA:BEGIN[\s\S]*?@DASHBOARD_DATA:END[\s\S]*?\*/",
-                 lambda _m: block, txt, count=1)
-    # 4. Replace the footer's template note with a data-source line.
+    pattern = (r"/\*\s*@DASHBOARD_DATA:BEGIN[\s\S]*?\*/\s*"
+               r"const\s+DASHBOARD_DATA\s*=\s*{[\s\S]*?};\s*"
+               r"/\*\s*@DASHBOARD_DATA:END[\s\S]*?\*/")
+    txt, n = re.subn(pattern, lambda _m: block, txt, count=1)
+    if n == 0:
+        raise ValueError("Could not locate @DASHBOARD_DATA markers in the template; template format may have changed.")
     txt = txt.replace(
         "  Data, company name and logo are supplied by the Cowork skill.",
         "  Source: Microsoft 365 admin center Copilot activity exports.")
