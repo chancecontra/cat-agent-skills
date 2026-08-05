@@ -482,7 +482,7 @@ def inject(template_text, data, company):
     txt = txt.replace('id="companyName">Company name</span>',
                       f'id="companyName">{html_escape(company)}</span>', 1)
     # 3. Replace the DASHBOARD_DATA block (field-guide comment + object).
-    payload = json.dumps(data, indent=2, ensure_ascii=False)
+    payload = json.dumps(data, indent=2, ensure_ascii=False).replace("</", "<\\/")
     block = ("/* Adoption metrics computed from the four Microsoft admin center "
              "report exports. */\nconst DASHBOARD_DATA = " + payload + ";")
     pattern = (r"/\*\s*@DASHBOARD_DATA:BEGIN[\s\S]*?\*/\s*"
