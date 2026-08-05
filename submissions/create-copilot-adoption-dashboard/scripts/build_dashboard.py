@@ -457,8 +457,11 @@ def encode_logo(path, warn):
     if not p.exists():
         warn.append(f"Logo file not found ({path}); using the default mark.")
         return ""
+    if p.suffix.lower() == ".svg":
+        warn.append("SVG logos are not supported because they can contain active content; use PNG/JPG/GIF/WebP instead.")
+        return ""
     mime = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
-            ".gif": "image/gif", ".svg": "image/svg+xml", ".webp": "image/webp"}.get(
+            ".gif": "image/gif", ".webp": "image/webp"}.get(
         p.suffix.lower(), "image/png")
     data = base64.b64encode(p.read_bytes()).decode("ascii")
     return f"data:{mime};base64,{data}"
