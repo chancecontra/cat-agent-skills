@@ -60,7 +60,7 @@ User: /create-copilot-adoption-dashboard
 3. Inspect each CSV's headers and map it to a report (--usage / --agents-user /
    --agents-agent / --chat).
 4. Run scripts/build_dashboard.py to compute the metrics and write the HTML to working/.
-5. Review the KPI summary, publish to output/ with host-CopyArtifact, confirm with Glob.
+5. Review the KPI summary, publish to output/ with CopyArtifact, confirm with Glob.
 ```
 
 ## Core Instructions
