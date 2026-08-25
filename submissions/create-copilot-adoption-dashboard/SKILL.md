@@ -84,7 +84,7 @@ Tell the user, in a few plain lines, how this works:
 ### Phase 2 — Collect inputs
 
 1. **Company name + logo:** if not already given, ask with `core-AskUserQuestion`
-   (company name is required; logo is optional — a PNG/JPG/SVG file). Do not ask
+   (company name is required; logo is optional — a PNG/JPG file). Do not ask
    for anything a lookup can answer.
 2. **The four CSVs:** find them with `Glob` on `input/**/*.csv`. If fewer than
    four are present, tell the user which report types are missing and proceed
