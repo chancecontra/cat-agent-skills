@@ -124,7 +124,7 @@ Tell the user, in a few plain lines, how this works:
    where it came from** (e.g. "28-day window, from the export's Report Period
    column"), and which sources were used, for a quick sanity check before delivery.
 2. Publish the finished file to `output/` with
-   `host-CopyArtifact(surface="output", source="working/<file>.html", destination="<file>.html")`,
+   `CopyArtifact(surface="output", source="working/<file>.html", destination="<file>.html")`,
    then confirm it exists with `Glob output/**/*`.
 3. Tell the user the dashboard is ready and note any pending panels (missing sources).
 
