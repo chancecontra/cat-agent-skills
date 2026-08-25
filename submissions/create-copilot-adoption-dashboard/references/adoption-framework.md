@@ -12,10 +12,10 @@ Three are per-user tables joined on the user column; the fourth is per-agent.
 
 | # | Report (`--flag`) | Grain | Key columns the framework uses | Signature to recognise it |
 |---|---|---|---|---|
-| 1 | **Copilot usage** (`--usage`) | one licensed user per row | **Report Period**; **Report Refresh Date**; user key; prompts submitted; active days; overall last activity; per-app last-activity for Teams, Word, Excel, PowerPoint, Outlook, OneNote, Loop, M365 Copilot app, Edge | per-app Copilot columns incl. **Loop / OneNote**, plus prompts + active-days |
+| 1 | **Copilot usage** (`--usage`) | one licensed user per row | **Report Period**; **Report Refresh Date**; user key; prompts submitted; active usage days for all apps; overall last activity; per-app last-activity for Teams, Word, Excel, PowerPoint, Outlook, OneNote, Loop, M365 Copilot app, Edge | per-app Copilot columns incl. **Loop / OneNote**, plus prompts + active-days |
 | 2 | **Agents — per user** (`--agents-user`) | one licensed user per row | user key; number of agents used; agent responses received; last activity | has **agents-used** / **agent-responses** columns |
 | 3 | **Agents — per agent** (`--agents-agent`) | one agent per row | agent name; creator type; active users (licensed / unlicensed); responses sent; last activity | has an **agent-name** column + **active-users** / **creator** |
-| 4 | **Copilot Chat** (`--chat`) | one user per row, **includes unlicensed** | user key; prompts submitted; active days; last activity; per-surface last-activity incl. **web chat** | has a **web-chat** surface column; the only report with unlicensed users |
+| 4 | **Copilot Chat** (`--chat`) | one user per row, **includes unlicensed** | user key; prompts submitted; active days usage days; last activity; per-surface last-activity incl. **web chat** | has a **web-chat** surface column; the only report with unlicensed users |
 
 The strategic hinge: Copilot Chat reaches users with no paid license. Active Chat
 users who are **not** already active in licensed in-app Copilot are the
@@ -48,11 +48,11 @@ The **report date** resolves the same way: `--report-date`, else the export's
 placed in exactly one segment using a waterfall (first match wins), where
 `apps` = number of per-app columns with recent activity:
 
-1. **Never activated** — no prompts, no active days, no activity at all.
+1. **Never activated** — no prompts, no active usage days, no activity at all.
 2. **Dormant / at-risk** — had activity, but last activity **≥ 28 days** ago.
-3. **Champion / power user** — active days **≥ 12** AND (prompts **≥ 60** OR apps **≥ 4**).
-4. **Habitual** — active days **≥ 5** (i.e. 5–11 and not a Champion).
-5. **Casual / occasional** — any remaining user with 1–4 active days.
+3. **Champion / power user** — active usage days **≥ 12** AND (prompts **≥ 60** OR apps **≥ 4**).
+4. **Habitual** — active usage days **≥ 5** (i.e. 5–11 and not a Champion).
+5. **Casual / occasional** — any remaining user with 1–4 active usage days.
 
 **Pillar B — Surface breadth** (from Copilot usage). For each app, share of
 licensed users with recent activity in that app = users-active-in-app ÷ assigned.
