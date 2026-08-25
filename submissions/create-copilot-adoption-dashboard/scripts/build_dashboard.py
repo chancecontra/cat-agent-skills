@@ -276,6 +276,8 @@ def compute_usage(path, report_date, period, overrides, warn):
     headers, rows = sniff_read(path)
     r = Resolver(headers, overrides)
     ukey = r.user()
+    if not ukey:
+        warn.append("Copilot usage: no user identifier column found — Copilot Chat conversion cannot exclude licensed users.")
     c_prompts = r.find("prompts", CONCEPTS["prompts"])
     c_days = r.find("active_days", CONCEPTS["active_days"])
     c_last = r.find("last_activity", CONCEPTS["last_activity"])
