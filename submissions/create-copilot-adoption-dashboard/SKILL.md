@@ -83,7 +83,7 @@ Tell the user, in a few plain lines, how this works:
 
 ### Phase 2 — Collect inputs
 
-1. **Company name + logo:** if not already given, ask with `core-AskUserQuestion`
+1. **Company name + logo:** if not already given, ask with `AskUserQuestion`
    (company name is required; logo is optional — a PNG/JPG file). Do not ask
    for anything a lookup can answer.
 2. **The four CSVs:** find them with `Glob` on `input/**/*.csv`. If fewer than
