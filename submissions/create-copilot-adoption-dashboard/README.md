@@ -104,3 +104,4 @@ skill won't evaluate individual people's usage. Due to this, you can use anonimi
 no external dependencies, so it emails and archives cleanly. It's a point-in-time
 snapshot, not a live report — rerun it with fresh exports each month.
 
+**Adoption Analytics Framework.** Is custom. All KPIs used are custom developed and not using any public framework approach such as Microsoft Adoption toolkit or M365 Copilot Adoption Guide. Entire framework is within explained within references/adoption-framework.md.
