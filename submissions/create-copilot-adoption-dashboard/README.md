@@ -26,7 +26,7 @@ the Copilot usage report in the admin center, you can export what this needs:
 Bring all four for the full picture. Fewer is fine — the dashboard renders what
 it can and marks the rest as pending rather than guessing.
 
-Optional: a **logo** file (PNG, JPG, SVG, GIF or WebP). It gets embedded into the
+Optional: a **logo** file (PNG, JPG, GIF or WebP). It gets embedded into the
 HTML, so the finished dashboard stays a single portable file.
 
 ## How to use it
