@@ -2,7 +2,7 @@
   "name": "Copilot Adoption Dashboard",
   "description": "Using exported files from MAC usage reports, build html Copilot Adoption Dashboard with integrated framework that suggest next steps",
   "platforms": ["Cowork"],
-  "tags": ["Copilot", "Adoption", "Data", "Dashboard", "KPIs", "Measure"],
+  "tags": ["copilot", "adoption", "data", "dashboard", "kpis", "measure"],
   "author": "Sead Borovina",
   "authorUrl": "https://www.linkedin.com/in/seadb/",
   "version": "1.0.0",
