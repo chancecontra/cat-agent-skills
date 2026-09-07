@@ -381,6 +381,10 @@ def compute_agents_agent(path, base_users, overrides, warn):
                          + " | ".join(headers))
 
     def users_for(row):
+        # If we have a distinct licensed-user base (from the per-user report),
+        # prefer the licensed active-users column to keep numerator/denominator aligned.
+        if base_users and base_users > 0 and c_lic:
+            return to_int(row.get(c_lic))
         if c_users:
             return to_int(row.get(c_users))
         return to_int(row.get(c_lic)) + to_int(row.get(c_unlic))
@@ -396,7 +400,7 @@ def compute_agents_agent(path, base_users, overrides, warn):
                     "instances instead of distinct users.")
     # users rides alongside the share so each bar can show the count on hover.
     share = sorted(
-        ({"name": n, "pct": min(100, round(u / base * 100)) if base else 0, "users": u}
+        ({"name": n, "pct": round(u / base * 100) if base else 0, "users": u}
          for n, u in agents),
         key=lambda x: (x["pct"], x["users"]), reverse=True)[:TOP_N]
     return {"agentShare": share, "mapping": r.resolved}
