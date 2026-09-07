@@ -23,8 +23,11 @@ cowork:
 ## Overview
 
 This skill builds a **Microsoft 365 Copilot adoption dashboard** by feeding four
-MAC report exports through the *Copilot Adoption Analysis* framework and
-injecting the computed results into a bundled single-file HTML template. The
+MAC report exports through the *Copilot Adoption Analysis* framework 
+(*Framework.* mentioned is custom. All KPIs used are custom developed and not using any
+public framework approach such as Microsoft Adoption toolkit or M365 Copilot 
+Adoption Guide. Entire framework is within explained within references) 
+and injecting the computed results into a bundled single-file HTML template. The
 output is one self-contained `.html` file (no libraries, no network) branded
 with the customer's name and logo, carrying only real data — every template
 placeholder, sample number, and template label is replaced. Every KPI tile and
@@ -79,7 +82,8 @@ Tell the user, in a few plain lines, how this works:
 > taken from the **Report Period** column in your export (the admin center
 > default is 28 days), so the dashboard always states the period your data
 > actually covers. I just need your **company name** (required), an optional
-> **logo**, and the **four CSV files**.
+> **logo**, and the **four CSV files**. Note: Adoption Framework for KPIs is custom,
+> as explained in the reference documentation.
 
 ### Phase 2 — Collect inputs
 
