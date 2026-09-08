@@ -171,10 +171,13 @@ class Resolver:
         self.overrides = {k: v for k, v in (overrides or {}).items()}
         self.resolved = {}
 
-    def find(self, concept, aliases):
-        if concept in self.overrides:
-            self.resolved[concept] = self.overrides[concept]
-            return self.overrides[concept]
+def find(self, concept, aliases):
+    if concept in self.overrides:
+        ov = self.overrides[concept]
+        if ov not in self.headers:
+            raise ValueError(f"Column override for '{concept}' not found in headers: {ov}")
+        self.resolved[concept] = ov
+        return ov
         for a in aliases:
             na = norm(a)
             if na in self.norm_map:                       # exact normalised hit
