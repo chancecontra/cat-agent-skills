@@ -60,8 +60,7 @@ Every tile and panel has an **i** button explaining what the metric means, how
 it's calculated, and the target it's measured against. Hovering the donut or any
 bar shows the underlying head-count, not just the percentage.
 
-Before it delivers, it shows you a summary of the computed KPIs so you can sanity
--check them. You can also ask for a specific reporting window or report date, or
+Before it delivers, it shows you a summary of the computed KPIs so you can sanity-check them. You can also ask for a specific reporting window or report date, or
 rerun with a corrected company name — just say so.
 
 ## Good to know
